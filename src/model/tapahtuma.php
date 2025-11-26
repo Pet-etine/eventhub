@@ -4,7 +4,7 @@ require_once HELPERS_DIR . 'DB.php';
 
 function haeTapahtumat($jarj = 'pvm_asc') {
 
-  // sallittujen järjestystapojen kartta
+  // Sallitut järjestystavat
   $jarjestykset = [
     'nimi_asc'         => 'nimi ASC',
     'nimi_desc'        => 'nimi DESC',
@@ -14,13 +14,14 @@ function haeTapahtumat($jarj = 'pvm_asc') {
     'pvm_desc'         => 'tap_alkaa DESC',
   ];
 
-  // jos annettu arvo ei kelpaa → käytetään oletusta
+  // Jos URL:sta tullut arvo ei ole sallittu, käytetään oletusta
   if (!isset($jarjestykset[$jarj])) {
     $jarj = 'pvm_asc';
   }
 
   $orderBy = $jarjestykset[$jarj];
 
+  // HUOM: orderBy tulee whitelististä -> turvallista upottaa suoraan
   return DB::run("SELECT * FROM tapahtuma ORDER BY $orderBy;")->fetchAll();
 }
 

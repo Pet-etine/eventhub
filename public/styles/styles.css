@@ -184,3 +184,34 @@ header {
   font-weight: bold;
   text-decoration: underline;
 }
+
+.event-header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+
+.sort-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+
+.sort-buttons a {
+  color: #5b6dff;        
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+
+.sort-buttons a:hover {
+  color: #ff4fd8;        
+  text-decoration: underline;
+}

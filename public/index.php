@@ -53,6 +53,7 @@ case '/tapahtumat':
   break;
 
 
+
     case '/tapahtuma':
       require_once MODEL_DIR . 'tapahtuma.php';
       require_once MODEL_DIR . 'ilmoittautuminen.php';

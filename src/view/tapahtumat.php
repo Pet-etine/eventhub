@@ -6,31 +6,24 @@
 <div class='tapahtumat'>
 <div class="event-header">
   <div class="event-name">
-    Tapahtuma 
-<a href="<?= BASEURL ?>tapahtumat?jarj=nimi_asc" 
-   class="<?= $jarj == 'nimi_asc' ? 'active' : '' ?>">▲</a>
-<a href="<?= BASEURL ?>tapahtumat?jarj=nimi_desc" 
-   class="<?= $jarj == 'nimi_desc' ? 'active' : '' ?>">▼</a>
+  Tapahtuma
+    <a href="<?= BASEURL ?>tapahtumat?jarj=nimi_asc">A-Ö</a>
+    <a href="<?= BASEURL ?>tapahtumat?jarj=nimi_desc">Ö-A</a>
   </div>
-
-  <div class="event-city">
-    Paikkakunta 
-<a href="<?= BASEURL ?>tapahtumat?jarj=paikkakunta_asc" 
-   class="<?= $jarj == 'paikkakunta_asc' ? 'active' : '' ?>">▲</a>
-<a href="<?= BASEURL ?>tapahtumat?jarj=paikkakunta_desc" 
-   class="<?= $jarj == 'paikkakunta_desc' ? 'active' : '' ?>">▼</a>
+<div class="event-city">
+  <div class="header-title">Paikkakunta</div>
+  <div class="sort-buttons">
+    <a href="<?= BASEURL ?>tapahtumat?jarj=paikkakunta_asc">A–Ö</a>
+    <a href="<?= BASEURL ?>tapahtumat?jarj=paikkakunta_desc">Ö–A</a>
   </div>
-
+</div>
   <div class="event-date">
-    Ajankohta 
-<a href="<?= BASEURL ?>tapahtumat?jarj=pvm_asc" 
-   class="<?= $jarj == 'pvm_asc' ? 'active' : '' ?>">▲</a>
-<a href="<?= BASEURL ?>tapahtumat?jarj=pvm_desc" 
-   class="<?= $jarj == 'pvm_desc' ? 'active' : '' ?>">▼</a>
+    Ajankohta
+    <a href="<?= BASEURL ?>tapahtumat?jarj=pvm_asc">▲</a>
+    <a href="<?= BASEURL ?>tapahtumat?jarj=pvm_desc">▼</a>
   </div>
-
   <div class="event-link"></div>
-</div> 
+</div>
 <?php
 
 foreach ($tapahtumat as $tapahtuma) {
