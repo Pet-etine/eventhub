@@ -125,18 +125,30 @@ case "/kirjaudu":
       header("Location: " . $config['urls']['baseUrl']);
       break;
 
-    case '/ilmoittaudu':
-      if ($_GET['id']) {
-        require_once MODEL_DIR . 'ilmoittautuminen.php';
-        $idtapahtuma = $_GET['id'];
-        if ($loggeduser) {
-          lisaaIlmoittautuminen($loggeduser['idhenkilo'],$idtapahtuma);
-        }
-        header("Location: tapahtuma?id=$idtapahtuma");
-      } else {
-        header("Location: tapahtumat");
-      }
-      break;
+case '/ilmoittaudu':
+  if (isset($_GET['id']) && $loggeduser) {
+    require_once MODEL_DIR . 'ilmoittautuminen.php';
+
+    $idtapahtuma = (int)$_GET['id'];
+
+    // luetaan rooli ja muistiinpanot lomakkeelta
+    $rooli = $_POST['rooli'] ?? 'kävijä';
+    $muistiinpanot = isset($_POST['muistiinpanot']) ? trim($_POST['muistiinpanot']) : null;
+
+    $sallitut = ['esiintyjä','myyjä','kävijä','vapaaehtoinen','cosplayer'];
+    if (!in_array($rooli, $sallitut, true)) {
+      $rooli = 'kävijä';
+    }
+
+    lisaaIlmoittautuminen($loggeduser['idhenkilo'], $idtapahtuma, $rooli, $muistiinpanot ?: null);
+
+    header("Location: tapahtuma?id=$idtapahtuma");
+    exit;
+  } else {
+    header("Location: tapahtumat");
+    exit;
+  }
+  break;
 
     case '/peru':
       if ($_GET['id']) {

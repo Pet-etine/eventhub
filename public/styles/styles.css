@@ -305,3 +305,19 @@ input {
   align-items: flex-end;  /* vie otsikon sisältöä oikeaan reunaan */
     transform: translateX(-70px);
 }
+.ilmo-form p {
+  margin-bottom: 0.4rem;
+}
+
+.ilmo-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.ilmo-form textarea {
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
