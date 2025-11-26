@@ -1,0 +1,6 @@
+*.log
+*.env
+.vscode/
+node_modules/
+vendor/
+composer.lock
