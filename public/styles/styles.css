@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
 
+/* -------------------- 
+   Perusasetukset
+-------------------- */
+
 * {
   padding: 0;
   margin: 0;
@@ -8,152 +12,257 @@
 
 html {
   font-family: 'Rubik', sans-serif;
-  background: rgb(0, 34, 0);
-  background: linear-gradient(120deg, rgba(0, 34, 0, 1) 0%, rgba(9, 136, 144, 1) 36%, rgba(151, 85, 121, 1) 100%);
+  background: linear-gradient(
+    120deg,
+    rgba(0, 34, 0, 1) 0%,
+    rgba(9, 136, 144, 1) 36%,
+    rgba(151, 85, 121, 1) 100%
+  );
 }
 
 body {
   background-color: #fff;
   min-height: 100vh;
-  max-width: 40rem;
-  margin: 0 auto;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+  max-width: 48rem;
+  margin: 1.5rem auto;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
+/* -------------------- 
+   Header / yläpalkki
+-------------------- */
+
 header {
-  background-color: #B8BAC8;
+  background: linear-gradient(90deg, #2a2b4a, #3f2f5e);
   padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #f5f5ff;
 }
 
 header h1 {
-  font-size: 3rem;
-  font-weight: normal;
-  margin-left: 0.5rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-left: 0.2rem;
+  letter-spacing: 0.04em;
 }
 
 header a {
-  color: #000;
+  color: #f5f5ff;
   text-decoration: none;
+  font-weight: 500;
 }
 
+header a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------- 
+   Peruslayout
+-------------------- */
+
 section {
-  padding: 1.5rem 1rem 1rem 1rem;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
 }
 
 section h1 {
   margin-bottom: 1rem;
+  font-size: 1.8rem;
 }
 
 hr {
   border: none;
-  border-top: solid #1B1B3A 2px;
-  margin: 1rem;
+  border-top: 2px solid #1B1B3A;
+  margin: 1rem 0;
 }
 
 footer {
   font-size: 0.8rem;
   text-align: center;
   color: #1B1B3A;
+  padding: 0.8rem;
 }
 
-.tapahtumat>div {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
+/* -------------------- 
+   Yleiset komponentit
+-------------------- */
 
-.tapahtumat>div>div:nth-child(3) {
-  text-align: right;
-}
-
-.tapahtumat>div {
-  display: flex;
-  justify-content: space-between;
-}
-
-form>div {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0.5rem;
-}
-input {
-  border: 1px solid #999;
-  border-radius: 0.3rem;
-  padding: 0.45rem;
-  font-size: 1rem;
-}
-input[type=submit], .button {
-  padding: 0.5rem 3rem;
-  border-radius: 0.3rem;
-  background-color: #975579;
-  color: #fff;
-  font-weight: bold;
-  min-width: 12rem;
-  margin: 1rem auto;
-  
-}
-.error {
-  color: red;
-  font-size: 0.8rem;
-}
-.info {
-  background-color: #e5e5e5;
-  border: 1px solid #999;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin: 1rem;
-  text-align: center;
-}
-
-.info a {
-  color: #975579;
-}
-header {
-  background-color: #B8BAC8;
-  padding: 1rem 1.5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8rem;
-}
 .flexarea {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
 }
+
+.button,
+input[type=submit] {
+  padding: 0.5rem 3rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #975579, #5b6dff);
+  color: #fff;
+  font-weight: bold;
+  min-width: 12rem;
+  margin: 1rem auto;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.15s;
+}
+
+.button:hover,
+input[type=submit]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+  opacity: 0.95;
+}
+
+.button:active,
+input[type=submit]:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
 .button {
   text-decoration: none;
 }
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  padding: 0.45rem;
+  font-size: 1rem;
+}
+
+.error {
+  color: #c0392b;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.info {
+  background-color: #f4f4f8;
+  border: 1px solid #d0d0dd;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.info a {
+  color: #975579;
+}
+
+/* -------------------- 
+   Tapahtumalista
+-------------------- */
+
+.event-header {
+  display: flex;
+  border-bottom: 2px solid #000;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
+
+/* sama flex-jako headerille ja riveille */
+.event-header,
 .event-row {
   display: flex;
   align-items: center;
-  padding: 4px 0;
-  border-bottom: 1px solid #ddd;
+  gap: 0.5rem;
 }
 
+/* Sarakkeiden leveyssuhteet */
 .event-name {
-  width: 300px;
-  font-weight: bold;
+  flex: 2;
+  min-width: 0;
 }
 
 .event-city {
-  width: 140px;
+  flex: 1;
+  min-width: 0;
   text-align: center;
 }
 
 .event-date {
-  width: 200px;
-  text-align: center;
+  flex: 2;
+  min-width: 0;
+  text-align: right;
+  white-space: nowrap;
 }
 
 .event-link {
-  width: 100px;
+  flex: 0 0 auto;
   text-align: right;
 }
 
+/* Otsikkotekstit + lajittelunapit */
+
+.event-header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sort-buttons {
+  display: flex;
+  gap: 8px;
+  font-size: 0.9em;
+}
+
+.sort-buttons a {
+  color: #5b6dff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sort-buttons a:hover {
+  color: #ff4fd8;
+  text-decoration: underline;
+}
+
+
+.event-header .event-city {
+  align-items: center;
+  transform: translateX(-25px);
+}
+
+/* Rivien tyyli */
+
+.event-row {
+  padding: 4px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.event-name {
+  font-weight: 600;
+}
+
+.event-row:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Linkki "TIEDOT" */
+
 .event-link a {
-  color: blue;
+  color: #0044ff;
   font-weight: bold;
   text-decoration: none;
 }
@@ -161,57 +270,38 @@ header {
 .event-link a:hover {
   text-decoration: underline;
 }
-.event-header {
-  display: flex;
-  font-weight: bold;
-  border-bottom: 2px solid black;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
-}
-.event-header a {
-  text-decoration: none;
-  margin-left: 5px;
-  font-size: 14px;
-  color: #333;
-}
 
-.event-header a:hover {
-  color: #0077cc;
-  font-weight: bold;
-}
-.event-header a.active {
-  color: #000;
-  font-weight: bold;
-  text-decoration: underline;
-}
+/* -------------------- 
+   Pienemmät näytöt
+-------------------- */
 
-.event-header > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+@media (max-width: 640px) {
+  body {
+    margin: 0;
+    border-radius: 0;
+    max-width: 100%;
+  }
 
-.header-title {
-  font-weight: bold;
-  margin-bottom: 4px;
+  section {
+    padding: 1rem;
+  }
+
+  .event-date {
+    text-align: center;
+  }
+
+  .event-row,
+  .event-header {
+    gap: 0.3rem;
+  }
+}
+/* Vain datariveille (pysyy oikeassa reunassa) */
+.event-row .event-date {
+  text-align: right;
 }
 
-
-.sort-buttons {
-  display: flex;
-  gap: 8px;
-}
-
-
-.sort-buttons a {
-  color: #5b6dff;        
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 0.9em;
-}
-
-
-.sort-buttons a:hover {
-  color: #ff4fd8;        
-  text-decoration: underline;
+/* Vain otsikkoriville "Ajankohta" */
+.event-header .event-date {
+  align-items: flex-end;  /* vie otsikon sisältöä oikeaan reunaan */
+    transform: translateX(-70px);
 }

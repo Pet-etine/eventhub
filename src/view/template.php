@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fi">
   <head>
-        <link href="styles/styles.css" rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet">
     <title>eventhub - <?=$this->e($title)?></title>
     <meta charset="UTF-8">    
   </head>
@@ -12,6 +12,7 @@
         <?php
           if (isset($_SESSION['user'])) {
             echo "<div>$_SESSION[user]</div>";
+            echo "<div><a href='omat_tapahtumat'>Omat tapahtumat</a></div>";
             echo "<div><a href='logout'>Kirjaudu ulos</a></div>";
             if (isset($_SESSION['admin']) && $_SESSION['admin']) {
               echo "<div><a href='admin'>Ylläpitosivut</a></div>";  

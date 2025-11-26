@@ -5,23 +5,34 @@
 
 <div class='tapahtumat'>
 <div class="event-header">
+  <!-- Tapahtuma -->
   <div class="event-name">
-  Tapahtuma
-    <a href="<?= BASEURL ?>tapahtumat?jarj=nimi_asc">A-Ö</a>
-    <a href="<?= BASEURL ?>tapahtumat?jarj=nimi_desc">Ö-A</a>
+    <div class="header-title">Tapahtuma</div>
+    <div class="sort-buttons">
+      <a href="<?= BASEURL ?>tapahtumat?jarj=nimi_asc">A–Ö</a>
+      <a href="<?= BASEURL ?>tapahtumat?jarj=nimi_desc">Ö–A</a>
+    </div>
   </div>
-<div class="event-city">
-  <div class="header-title">Paikkakunta</div>
-  <div class="sort-buttons">
-    <a href="<?= BASEURL ?>tapahtumat?jarj=paikkakunta_asc">A–Ö</a>
-    <a href="<?= BASEURL ?>tapahtumat?jarj=paikkakunta_desc">Ö–A</a>
+
+  <!-- Paikkakunta -->
+  <div class="event-city">
+    <div class="header-title">Paikkakunta</div>
+    <div class="sort-buttons">
+      <a href="<?= BASEURL ?>tapahtumat?jarj=paikkakunta_asc">A–Ö</a>
+      <a href="<?= BASEURL ?>tapahtumat?jarj=paikkakunta_desc">Ö–A</a>
+    </div>
   </div>
-</div>
+
+  <!-- Ajankohta -->
   <div class="event-date">
-    Ajankohta
-    <a href="<?= BASEURL ?>tapahtumat?jarj=pvm_asc">▲</a>
-    <a href="<?= BASEURL ?>tapahtumat?jarj=pvm_desc">▼</a>
+    <div class="header-title">Ajankohta</div>
+    <div class="sort-buttons">
+      <a href="<?= BASEURL ?>tapahtumat?jarj=pvm_asc">▲</a>
+      <a href="<?= BASEURL ?>tapahtumat?jarj=pvm_desc">▼</a>
+    </div>
   </div>
+
+  <!-- tyhjä sarake linkille -->
   <div class="event-link"></div>
 </div>
 <?php

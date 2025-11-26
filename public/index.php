@@ -253,5 +253,19 @@ case (bool)preg_match('/\/admin.*/', $request):
     echo $templates->render('admin_ei_oikeuksia');
   }
   break;
+case '/omat_tapahtumat':
+  // vain kirjautuneelle
+  if (!$loggeduser) {
+    header("Location: " . $config['urls']['baseUrl'] . "/kirjaudu");
+    exit;
+  }
 
+  require_once MODEL_DIR . 'ilmoittautuminen.php';
+  $omatTapahtumat = haeIlmoittautumisetKayttajalle($loggeduser['idhenkilo']);
+
+  echo $templates->render('omat_tapahtumat', [
+    'tapahtumat' => $omatTapahtumat,
+    'loggeduser' => $loggeduser
+  ]);
+  break;
 }
