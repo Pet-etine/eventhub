@@ -20,11 +20,11 @@
 
       <p>Valitse rooli tapahtumassa:</p>
 
-      <label><input type="radio" name="rooli" value="kävijä" checked> Kävijä</label>
-      <label><input type="radio" name="rooli" value="esiintyjä"> Esiintyjä</label>
-      <label><input type="radio" name="rooli" value="myyjä"> Myyjä</label>
-      <label><input type="radio" name="rooli" value="vapaaehtoinen"> Vapaaehtoinen</label>
-      <label><input type="radio" name="rooli" value="cosplayer"> Cosplayer</label>
+      <label><input type="radio" name="rooli" value="kävijä" checked> 🎮 Kävijä</label>
+      <label><input type="radio" name="rooli" value="esiintyjä"> 🎤 Esiintyjä</label>
+      <label><input type="radio" name="rooli" value="myyjä"> 🛒 Myyjä</label>
+      <label><input type="radio" name="rooli" value="vapaaehtoinen"> 🙋 Vapaaehtoinen</label>
+      <label><input type="radio" name="rooli" value="cosplayer"> 🎭 Cosplayer</label>
 
       <p style="margin-top:0.8rem;">Muistiinpanot (esim. pöydän nimi, erikoistoiveet):</p>
       <textarea name="muistiinpanot" rows="3" style="width:100%;"></textarea>

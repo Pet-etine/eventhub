@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="fi">
   <head>
-    <link href="styles/styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>eventhub - <?=$this->e($title)?></title>
-    <meta charset="UTF-8">    
+    <link href="styles/styles.css" rel="stylesheet">
   </head>
   <body>
     <header>

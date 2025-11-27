@@ -8,8 +8,9 @@
 
 <?php else: ?>
 
-  <div class='tapahtumat'>
+  <div class="tapahtumat">
 
+    <!-- Otsikkorivi -->
     <div class="event-header">
       <div class="event-name">
         <div class="header-title">Tapahtuma</div>
@@ -20,11 +21,15 @@
       <div class="event-date">
         <div class="header-title">Ajankohta</div>
       </div>
+      <div class="event-role">
+        <div class="header-title">Rooli</div>
+      </div>
       <div class="event-link">
-        <!-- tyhjä otsikko linkkipalstalle -->
+        <div class="header-title"></div>
       </div>
     </div>
 
+    <!-- Rivien listaus -->
     <?php foreach ($tapahtumat as $tapahtuma):
 
       $start = new DateTime($tapahtuma['tap_alkaa']);
@@ -37,12 +42,37 @@
             <?= htmlspecialchars($tapahtuma['nimi']) ?>
           </a>
         </div>
+
         <div class="event-city">
           <?= htmlspecialchars($tapahtuma['paikkakunta']) ?>
         </div>
+
         <div class="event-date">
           <?= $start->format('j.n.Y') ?>–<?= $end->format('j.n.Y') ?>
         </div>
+
+<?php
+  $role = $tapahtuma['rooli'];
+
+  // Mapataan roolinimi CSS-luokkaan (ilman ääkkösiä)
+  $roleClassMap = [
+    'kävijä'        => 'role-kavija',
+    'esiintyjä'     => 'role-esiintyja',
+    'myyjä'         => 'role-myyja',
+    'vapaaehtoinen' => 'role-vapaaehtoinen',
+    'cosplayer'     => 'role-cosplayer',
+  ];
+  $roleClass = $roleClassMap[$role] ?? 'role-default';
+  
+?>
+
+<div class="event-role">
+  <span class="role-badge <?= $roleClass ?>">
+    <?= htmlspecialchars($role) ?>
+  </span>
+</div>
+
+
         <div class="event-link">
           <a href="peru?id=<?= $tapahtuma['idtapahtuma'] ?>">PERU</a>
         </div>

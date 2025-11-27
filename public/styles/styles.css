@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
 
-/* -------------------- 
-   Perusasetukset
--------------------- */
+/* =====================================
+   1) RESET & PERUSASETUKSET
+===================================== */
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -20,6 +20,7 @@ html {
   );
 }
 
+/* “kortti” keskellä isolla näytöllä */
 body {
   background-color: #fff;
   min-height: 100vh;
@@ -27,12 +28,11 @@ body {
   margin: 1.5rem auto;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
-  overflow: hidden;
 }
 
-/* -------------------- 
-   Header / yläpalkki
--------------------- */
+/* =====================================
+   2) HEADER & FOOTER
+===================================== */
 
 header {
   background: linear-gradient(90deg, #2a2b4a, #3f2f5e);
@@ -62,9 +62,22 @@ header a:hover {
   text-decoration: underline;
 }
 
-/* -------------------- 
-   Peruslayout
--------------------- */
+footer {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #1B1B3A;
+  padding: 0.8rem;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #1B1B3A;
+  margin: 1rem 0;
+}
+
+/* =====================================
+   3) PERUSLAYOUT & YLEISET ELEMENTIT
+===================================== */
 
 section {
   padding: 1.5rem 1.5rem 1rem 1.5rem;
@@ -75,23 +88,6 @@ section h1 {
   font-size: 1.8rem;
 }
 
-hr {
-  border: none;
-  border-top: 2px solid #1B1B3A;
-  margin: 1rem 0;
-}
-
-footer {
-  font-size: 0.8rem;
-  text-align: center;
-  color: #1B1B3A;
-  padding: 0.8rem;
-}
-
-/* -------------------- 
-   Yleiset komponentit
--------------------- */
-
 .flexarea {
   display: flex;
   flex-direction: column;
@@ -99,6 +95,7 @@ footer {
   margin-top: 1rem;
 }
 
+/* napit / submit */
 .button,
 input[type=submit] {
   padding: 0.5rem 3rem;
@@ -133,17 +130,21 @@ input[type=submit]:active {
   text-decoration: none;
 }
 
+/* lomakkeet */
+
 form > div {
   display: flex;
   flex-direction: column;
   margin-top: 0.5rem;
 }
 
-input {
+input,
+textarea {
   border: 1px solid #ccc;
   border-radius: 0.4rem;
   padding: 0.45rem;
   font-size: 1rem;
+  font-family: inherit;
 }
 
 .error {
@@ -165,18 +166,11 @@ input {
   color: #975579;
 }
 
-/* -------------------- 
-   Tapahtumalista
--------------------- */
+/* =====================================
+   4) TAPAHTUMALISTA & RIVIT
+===================================== */
 
-.event-header {
-  display: flex;
-  border-bottom: 2px solid #000;
-  padding-bottom: 4px;
-  margin-bottom: 4px;
-}
-
-/* sama flex-jako headerille ja riveille */
+/* header- ja datarivit: sama flex-jako */
 .event-header,
 .event-row {
   display: flex;
@@ -184,31 +178,12 @@ input {
   gap: 0.5rem;
 }
 
-/* Sarakkeiden leveyssuhteet */
-.event-name {
-  flex: 2;
-  min-width: 0;
+/* otsikkorivi */
+.event-header {
+  border-bottom: 2px solid #000;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
 }
-
-.event-city {
-  flex: 1;
-  min-width: 0;
-  text-align: center;
-}
-
-.event-date {
-  flex: 2;
-  min-width: 0;
-  text-align: right;
-  white-space: nowrap;
-}
-
-.event-link {
-  flex: 0 0 auto;
-  text-align: right;
-}
-
-/* Otsikkotekstit + lajittelunapit */
 
 .event-header > div {
   display: flex;
@@ -221,45 +196,44 @@ input {
   margin-bottom: 4px;
 }
 
-.sort-buttons {
-  display: flex;
-  gap: 8px;
-  font-size: 0.9em;
+/* sarakesuhteet */
+
+.event-name { 
+  flex: 2; 
+  min-width: 0; 
+  font-weight: 600;
 }
 
-.sort-buttons a {
-  color: #5b6dff;
-  font-weight: bold;
-  text-decoration: none;
+.event-city { 
+  flex: 1; 
+  min-width: 0; 
+  text-align: center; 
 }
 
-.sort-buttons a:hover {
-  color: #ff4fd8;
-  text-decoration: underline;
+.event-date { 
+  flex: 2; 
+  min-width: 0; 
+  text-align: right; 
+  white-space: nowrap; 
 }
 
-
-.event-header .event-city {
-  align-items: center;
-  transform: translateX(-25px);
+.event-link { 
+  flex: 0 0 auto; 
+  text-align: right; 
 }
 
-/* Rivien tyyli */
+/* datarivien tyyli */
 
 .event-row {
   padding: 4px 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.event-name {
-  font-weight: 600;
+  border-bottom: 1px solid #ddd;
 }
 
 .event-row:nth-child(even) {
   background-color: #fafafa;
 }
 
-/* Linkki "TIEDOT" */
+/* “TIEDOT” / “PERU” linkit */
 
 .event-link a {
   color: #0044ff;
@@ -271,40 +245,50 @@ input {
   text-decoration: underline;
 }
 
-/* -------------------- 
-   Pienemmät näytöt
--------------------- */
+/* lajittelunapit */
 
-@media (max-width: 640px) {
-  body {
-    margin: 0;
-    border-radius: 0;
-    max-width: 100%;
-  }
-
-  section {
-    padding: 1rem;
-  }
-
-  .event-date {
-    text-align: center;
-  }
-
-  .event-row,
-  .event-header {
-    gap: 0.3rem;
-  }
-}
-/* Vain datariveille (pysyy oikeassa reunassa) */
-.event-row .event-date {
-  text-align: right;
+.sort-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.05);
+  padding: 2px 6px;
+  border-radius: 999px;
 }
 
-/* Vain otsikkoriville "Ajankohta" */
+.sort-buttons a {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #5b6dff, #975579);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.sort-buttons a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* pientä hienosäätöä otsikkosarakkeiden kohdistukseen */
+.event-header .event-city {
+  align-items: center;
+  transform: translateX(-25px);   
+}
+
 .event-header .event-date {
-  align-items: flex-end;  /* vie otsikon sisältöä oikeaan reunaan */
-    transform: translateX(-70px);
+  align-items: flex-end;
+  transform: translateX(-70px);   
 }
+
+/* =====================================
+   5) ILMOITTAUTUMISLOMAKE
+===================================== */
+
 .ilmo-form p {
   margin-bottom: 0.4rem;
 }
@@ -320,4 +304,173 @@ input {
   padding: 0.4rem;
   font-family: inherit;
   font-size: 0.95rem;
+}
+
+/* =====================================
+   6) ROOLISARAKKEET & BADGET
+===================================== */
+
+.event-role {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+/* yleisilme badgeille */
+
+.role-badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* roolikohtaiset värit */
+
+.role-kavija {
+  background-color: #eeeeee;
+  color: #333333;
+}
+
+.role-esiintyja {
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+}
+
+.role-myyja {
+  background-color: #ffe0b2;
+  color: #e65100;
+}
+
+.role-vapaaehtoinen {
+  background-color: #e0f2f1;
+  color: #00796b;
+}
+
+.role-cosplayer {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
+.role-default {
+  background-color: #e0e0e0;
+  color: #424242;
+}
+
+/* =====================================
+   7) MOBIILI-NÄKYMÄT
+===================================== */
+
+/* tablet & pienemmät */
+@media (max-width: 640px) {
+
+  body {
+    margin: 0;
+    border-radius: 0;
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  header {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    margin-left: 0;
+  }
+
+  .event-row,
+  .event-header {
+    gap: 0.3rem;
+    font-size: 0.95rem;
+  }
+
+  .event-date {
+    text-align: center;
+  }
+
+  .role-badge {
+    font-size: 0.8rem;
+    padding: 0.05rem 0.4rem;
+  }
+}
+
+/* aivan pienet näytöt (esim. ~360px) */
+@media (max-width: 480px) {
+  
+  .event-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-header > div {
+    width: 100%;
+    margin-bottom: 0.6rem;
+  }
+  .sort-buttons {
+    justify-content: flex-start;
+    margin-top: 4px;
+  }
+
+  /* Suuremmat sorttausnapit */
+  .sort-buttons a {
+    font-size: 1rem;
+    padding: 0.2rem 0.7rem;
+  }
+
+
+  /* Ajankohta-nuolet isommiksi */
+  .sort-buttons a span,
+  .sort-buttons a {
+    font-size: 1.2rem;
+  }
+
+
+  /* datarivit pinoon – tämä sinulla jo oli */
+  .event-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-date {
+    text-align: left;
+    white-space: normal; 
+  }
+
+  .event-link {
+    align-self: flex-end;
+  }
+
+  /* OTSIKKORIVI: pinotaan pystysuunnassa */
+  .event-header {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    gap: 0.2rem;
+  }
+
+  .event-header > div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .sort-buttons {
+    margin-left: auto;      
+  }
+
+
+  .event-header .event-city,
+  .event-header .event-date {
+    transform: none;      
+  }
+
 }

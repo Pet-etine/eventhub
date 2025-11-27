@@ -32,6 +32,7 @@ function haeIlmoittautuminen($idhenkilo, $idtapahtuma) {
     )->fetch();
 }
 
+
 /**
  * Poistaa yhden ilmoittautumisen.
  */
