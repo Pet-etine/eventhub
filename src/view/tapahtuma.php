@@ -15,31 +15,16 @@
 
   <?php if (!$ilmoittautuminen): ?>
 
-    <!-- ILMOITTAUTUMISLOMAKE ROOLILLA -->
+    <!-- UUSI ilmoittautumislomake -->
     <form method="post" action="ilmoittaudu?id=<?= $tapahtuma['idtapahtuma'] ?>" class="ilmo-form" style="margin-top:1rem;">
 
       <p>Valitse rooli tapahtumassa:</p>
 
-      <label>
-        <input type="radio" name="rooli" value="kävijä" checked>
-        Kävijä
-      </label>
-      <label>
-        <input type="radio" name="rooli" value="esiintyjä">
-        Esiintyjä
-      </label>
-      <label>
-        <input type="radio" name="rooli" value="myyjä">
-        Myyjä
-      </label>
-      <label>
-        <input type="radio" name="rooli" value="vapaaehtoinen">
-        Vapaaehtoinen
-      </label>
-      <label>
-        <input type="radio" name="rooli" value="cosplayer">
-        Cosplayer
-      </label>
+      <label><input type="radio" name="rooli" value="kävijä" checked> Kävijä</label>
+      <label><input type="radio" name="rooli" value="esiintyjä"> Esiintyjä</label>
+      <label><input type="radio" name="rooli" value="myyjä"> Myyjä</label>
+      <label><input type="radio" name="rooli" value="vapaaehtoinen"> Vapaaehtoinen</label>
+      <label><input type="radio" name="rooli" value="cosplayer"> Cosplayer</label>
 
       <p style="margin-top:0.8rem;">Muistiinpanot (esim. pöydän nimi, erikoistoiveet):</p>
       <textarea name="muistiinpanot" rows="3" style="width:100%;"></textarea>
@@ -51,22 +36,50 @@
 
   <?php else: ?>
 
-    <!-- NÄYTÄ OMA ROOLI + MAHDOLLISET MUISTIINPANOT -->
-    <div class="flexarea" style="margin-top:1rem;">
-      <div>Olet ilmoittautunut tapahtumaan roolissa:
+    <!-- MUOKKAUSLOMAKE olemassa olevalle ilmoittautumiselle -->
+    <form method="post" action="paivita_ilmoittautuminen?id=<?= $tapahtuma['idtapahtuma'] ?>" class="ilmo-form" style="margin-top:1rem;">
+
+      <p>Olet ilmoittautunut tapahtumaan roolissa:
         <strong><?= htmlspecialchars($ilmoittautuminen['rooli']) ?></strong>
+      </p>
+
+      <p style="margin-top:0.8rem;">Vaihda roolia tarvittaessa:</p>
+
+      <?php
+        $valittu = $ilmoittautuminen['rooli'];
+      ?>
+
+      <label>
+        <input type="radio" name="rooli" value="kävijä" <?= $valittu === 'kävijä' ? 'checked' : '' ?>>
+        Kävijä
+      </label>
+      <label>
+        <input type="radio" name="rooli" value="esiintyjä" <?= $valittu === 'esiintyjä' ? 'checked' : '' ?>>
+        Esiintyjä
+      </label>
+      <label>
+        <input type="radio" name="rooli" value="myyjä" <?= $valittu === 'myyjä' ? 'checked' : '' ?>>
+        Myyjä
+      </label>
+      <label>
+        <input type="radio" name="rooli" value="vapaaehtoinen" <?= $valittu === 'vapaaehtoinen' ? 'checked' : '' ?>>
+        Vapaaehtoinen
+      </label>
+      <label>
+        <input type="radio" name="rooli" value="cosplayer" <?= $valittu === 'cosplayer' ? 'checked' : '' ?>>
+        Cosplayer
+      </label>
+
+      <p style="margin-top:0.8rem;">Muistiinpanot:</p>
+      <textarea name="muistiinpanot" rows="3" style="width:100%;"><?= htmlspecialchars($ilmoittautuminen['muistiinpanot'] ?? '') ?></textarea>
+
+      <div class="flexarea">
+        <input type="submit" value="PÄIVITÄ ILMOITTAUTUMINEN">
       </div>
+    </form>
 
-      <?php if (!empty($ilmoittautuminen['muistiinpanot'])): ?>
-        <div style="margin-top:0.5rem;">
-          Muistiinpanosi:<br>
-          <?= nl2br(htmlspecialchars($ilmoittautuminen['muistiinpanot'])) ?>
-        </div>
-      <?php endif; ?>
-
-      <a href="peru?id=<?= $tapahtuma['idtapahtuma'] ?>" class="button" style="margin-top:1rem;">
-        PERU ILMOITTAUTUMINEN
-      </a>
+    <div class="flexarea" style="margin-top:0.5rem;">
+      <a href="peru?id=<?= $tapahtuma['idtapahtuma'] ?>" class="button">PERU ILMOITTAUTUMINEN</a>
     </div>
 
   <?php endif; ?>

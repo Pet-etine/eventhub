@@ -42,6 +42,21 @@ function poistaIlmoittautuminen($idhenkilo, $idtapahtuma) {
         [$idhenkilo, $idtapahtuma]
     );
 }
+function paivitaIlmoittautuminen($idhenkilo, $idtapahtuma, $rooli = 'kävijä', $muistiinpanot = null) {
+    $sallitut = ['esiintyjä','myyjä','kävijä','vapaaehtoinen','cosplayer'];
+    if (!in_array($rooli, $sallitut, true)) {
+        $rooli = 'kävijä';
+    }
+
+    return DB::run(
+        "UPDATE ilmoittautuminen
+         SET rooli = ?, muistiinpanot = ?
+         WHERE idhenkilo = ? AND idtapahtuma = ?",
+        [$rooli, $muistiinpanot, $idhenkilo, $idtapahtuma]
+    );
+}
+
+
 
 /**
  * Kaikki käyttäjän ilmoittautumiset: käytetään Omat tapahtumat -sivulla.
