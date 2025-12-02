@@ -28,20 +28,8 @@ Tämä projekti on harjoitustyö, jonka tavoitteena oli:
 - **Composer** (autoload)
 
 ## 📁 Projektin rakenne
-eventhub/
-│
-├── config/ # Tietokanta- ja url-asetukset
-├── public/ # Juurihakemisto, sisältää index.php ja staattiset tiedostot
-├── styles/ # Tyylimääritelmät
-├── src/
-│ ├── controller/ # Lomakelogiikka ja käsittelijät
-│ ├── helpers/ # Sovelluksen apufunktiot
-│ ├── model/ # Tietokantamallit
-│ ├── view/ # Plates-näkymät
-│ └──  init.php # Yhteiset asetukset ja autoload
-│
-├── vendor/ # Composer
-└── README.md
+<img width="665" height="557" alt="image" src="https://github.com/user-attachments/assets/f2d1a0d1-8dfa-4c64-8a15-7ec1578258d9" />
+
 
 ## 🔒 Käyttäjätilit & kirjautuminen
 
