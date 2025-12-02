@@ -122,7 +122,7 @@ Voit käyttää, muokata ja jakaa vapaasti.
 👤 Tekijä
 
 Petri Venäläinen-Kuusela
-(2025)
+(2025) Hyödynnetty ChatGPT, koodin korjaamiseen ja ohjeistukseen.
 
 🙌 Pohja / Credits
 
