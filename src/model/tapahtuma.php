@@ -14,14 +14,13 @@ function haeTapahtumat($jarj = 'pvm_asc') {
     'pvm_desc'         => 'tap_alkaa DESC',
   ];
 
-  // Jos URL:sta tullut arvo ei ole sallittu, käytetään oletusta
+
   if (!isset($jarjestykset[$jarj])) {
     $jarj = 'pvm_asc';
   }
 
   $orderBy = $jarjestykset[$jarj];
 
-  // HUOM: orderBy tulee whitelististä -> turvallista upottaa suoraan
   return DB::run("SELECT * FROM tapahtuma ORDER BY $orderBy;")->fetchAll();
 }
 

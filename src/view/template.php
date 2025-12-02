@@ -19,6 +19,14 @@
       </div>
 
       <nav class="profile-links">
+        <!--  Info-linkki (aina ensimmäisenä) -->
+        <a href="info" 
+           class="profile-link profile-info" 
+           title="Tietoa sovelluksesta">
+          <span class="profile-icon">ℹ️</span>
+          <span class="profile-text">Info</span>
+        </a>
+
         <!-- Omat tapahtumat -->
         <a href="omat_tapahtumat" 
            class="profile-link profile-myevents" 
@@ -36,7 +44,7 @@
         </a>
 
         <?php if (isset($_SESSION['admin']) && $_SESSION['admin']): ?>
-          <!-- Ylläpito (vain jos tarvitset) -->
+          <!-- Ylläpito -->
           <a href="admin" 
              class="profile-link profile-admin" 
              title="Ylläpitosivut">
@@ -49,6 +57,13 @@
     <?php else: ?>
 
       <nav class="profile-links">
+        <a href="info" 
+           class="profile-link profile-info" 
+           title="Tietoa sovelluksesta">
+          <span class="profile-icon">ℹ️</span>
+          <span class="profile-text">Info</span>
+        </a>
+
         <a href="kirjaudu" 
            class="profile-link profile-login" 
            title="Kirjaudu">
